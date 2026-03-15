@@ -539,7 +539,7 @@ async function loadStudentTable() {
         <td>Year ${s.year}</td>
         <td style="font-size:.78rem">${completed.map(c => `<span class="tag tag-credits" style="margin:.1rem">${c}</span>`).join('') || '<em style="color:var(--muted)">None</em>'}</td>
         <td style="font-size:.78rem">${backlog.map(c => `<span class="backlog-tag">${c}</span>`).join('') || '—'}</td>
-        <td><button class="btn-primary btn-sm" onclick="openRecordModal(${s.id})"><i class="fas fa-edit"></i> Edit Record</button></td>
+        <td><button class="btn-primary btn-sm" onclick="openRecordModal('${s.id}')"><i class="fas fa-edit"></i> Edit Record</button></td>
       </tr>`;
     }).join('')}</tbody></table>`;
 }
@@ -639,8 +639,8 @@ async function loadAdminAllocations() {
       <td><span class="alloc-status status-${a.status}">${a.status}</span></td>
       <td style="font-size:.78rem;color:var(--muted)">${a.reason || '—'}</td>
       <td>
-        ${a.status !== 'allocated' ? `<button class="btn-primary btn-sm btn-success" onclick="override(${a.studentId},'${a.courseId}','add')"><i class="fas fa-plus"></i> Enroll</button>` : ''}
-        ${a.status === 'allocated' ? `<button class="btn-primary btn-sm btn-danger" onclick="override(${a.studentId},'${a.courseId}','remove')"><i class="fas fa-minus"></i> Remove</button>` : ''}
+        ${a.status !== 'allocated' ? `<button class="btn-primary btn-sm btn-success" onclick="override('${a.studentId}','${a.courseId}','add')"><i class="fas fa-plus"></i> Enroll</button>` : ''}
+        ${a.status === 'allocated' ? `<button class="btn-primary btn-sm btn-danger" onclick="override('${a.studentId}','${a.courseId}','remove')"><i class="fas fa-minus"></i> Remove</button>` : ''}
       </td>
     </tr>`).join('')}</tbody></table>`;
 }
